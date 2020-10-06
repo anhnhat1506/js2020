@@ -5,19 +5,20 @@ const calculate = (n1, operator, n2) => {
     if (operator === "subtract") return firstNum - secondNum;
     if (operator === "multiply") return firstNum * secondNum;
     if (operator === "divide") return firstNum / secondNum;
-    // return result
 };
 
 const getKeyType = key => {
-    const {
-        action
-    } = key.dataset;
+    const { action } = key.dataset;
     if (!action) return 'number';
-    if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') return 'operator';
+    if (action === 'add' ||
+        action === 'subtract' ||
+        action === 'multiply' ||
+        action === 'divide')
+        return 'operator';
     return action;
 };
 
-const createRusultString = (key, displayedNum, state) => {
+const createResultString = (key, displayedNum, state) => {
     const keyContent = key.textContent;
     const keyType = getKeyType(key);
     const {
@@ -25,7 +26,7 @@ const createRusultString = (key, displayedNum, state) => {
         operator,
         modValue,
         previousKeyType
-    } = state
+    } = state;
 
     if (keyType === 'number') {
         return displayedNum === '0' ||
@@ -37,6 +38,7 @@ const createRusultString = (key, displayedNum, state) => {
 
     if (keyType === 'decimal') {
         if (!displayedNum.includes('.')) return displayedNum + '.';
+        if (previousKeyType === 'operator' || previousKeyType === 'calculate') return '0.';
         if (previousKeyType === 'operator' || previousKeyType === 'calculate') return '0.';
         return displayedNum;
     }
@@ -68,7 +70,7 @@ const updateCalculatorState = (key, calculator, calculatedValue, displayedNum) =
         operator,
         modValue,
         previousKeyType
-    } = calculate.dataset;
+    } = calculator.dataset;
 
     calculator.dataset.previousKeyType = keyType;
 
@@ -109,16 +111,29 @@ const updateVisualState = (key, calculator) => {
 };
 
 const calculator = document.querySelector('.calculator');
-const display = document.querySelector('.calculator__display');
-const keys = calculator.querySelector('.calculator_keys');
+const display = calculator.querySelector('.calculator__display');
+const keys = calculator.querySelector('.calculator__keys');
+// const calculator = document.querySelector('.calculator');
+// const display = calculator.querySelector('.calculator__display');
+// const keys = calculator.querySelector('.calculator_keys');
 
 keys.addEventListener('click', e => {
     if (!e.target.matches('button')) return;
     const key = e.target;
     const displayedNum = display.textContent;
-    const resultString = createRusultString(key, displayedNum, calculator.dataset);
+    const resultString = createResultString(key, displayedNum, calculator.dataset);
 
     display.textContent = resultString;
     updateCalculatorState(key, calculator, resultString, displayedNum);
     updateVisualState(key, calculator);
 });
+// keys.addEventListener('click', e => {
+//     if (!e.target.matches('button')) return;
+//     const key = e.target;
+//     const displayedNum = display.textContent;
+//     const resultString = createRusultString(key, displayedNum, calculator.dataset);
+
+//     display.textContent = resultString;
+//     updateCalculatorState(key, calculator, resultString, displayedNum);
+//     updateVisualState(key, calculator);
+// });
