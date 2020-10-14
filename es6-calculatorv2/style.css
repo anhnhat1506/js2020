@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#42f4d1), color-stop(85%, #42f4d1), color-stop(85%, #000));
+    background: linear-gradient(to bottom, #42f4d1 0%, #42f4d1 85%, #000 85%);
+    background-size: cover;
+    font-family: "Source Code Pro", monospace;
+    padding: 16px;
+}
+
+a:link,
+a:visited {
+    color: #000;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+.calculator-wrap {
+    cursor: -webkit-grab;
+    cursor: grab;
+    width: 40vmax;
+    min-width: 300px;
+    margin: 20px auto;
+}
+
+.calculator-inner {
+    box-shadow: 6px 6px 0 #000;
+    background-color: #42f4d1;
+    border: 3px solid #000;
+    border-top: none;
+    display: block;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.calculator-inner.ui-draggable-dragging,
+.calculator-inner:active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.calc-title {
+    background: #35c3a7;
+    color: #000;
+    margin: -20px -20px 0;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    -webkit-transform: skew(-8deg) translateX(1.7rem);
+    transform: skew(-8deg) translateX(1.7rem);
+}
+
+#calc-display {
+    box-shadow: 3px 3px 0 #000;
+    border: 2px solid #000;
+    background-color: transparent;
+    font-family: "Orbitron", monospace;
+    border-radius: 2px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 12px 12px;
+    width: 100%;
+}
+
+.buttons-wrap {
+    display: -webkit-box;
+    display: flex;
+}
+
+.buttons-operators {
+    -webkit-box-align: start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button-numbers {
+    width: 72%;
+    margin-right: 3%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.button-numbers button {
+    width: 30%;
+}
+
+.button-numbers button:nth-child(3n) {
+    margin-right: 0;
+}
+
+.buttons-operators {
+    display: -webkit-box;
+    display: flex;
+    width: 25%;
+}
+
+.buttons-operators button {
+    background: #35c3a7;
+    font-size: 1.25em;
+    flex-basis: 100%;
+}
+
+.buttons-methods {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.buttons-methods button {
+    background: #35c3a7;
+    font-size: 1.25em;
+    width: 48.5%;
+}
+
+button {
+    box-shadow: 3px 3px 0 #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #000;
+    font-weight: 900;
+    font-family: "Orbitron", monospace;
+    font-size: 16px;
+    margin-bottom: 8px;
+    outline: none;
+    padding: 8px;
+}
+
+button:active {
+    box-shadow: none;
+    -webkit-transform: translateX(3px) translateY(3px);
+    transform: translateX(3px) translateY(3px);
+    outline: none;
+}
+
+[id="calculator"]:before {
+    color: #000;
+    content: "DEBUG: Mode = " attr(data-calc-mode);
+    font-family: "Source Code Pro", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 7px;
+    left: 25px;
+    display: block;
+}
+
+.is-debug-mode:before {
+    content: "";
+}
+
+.colophon {
+    color: #42f4d1;
+    font-size: 13px;
+    text-align: center;
+    margin: 40px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.colophon a {
+    color: #42f4d1;
+}

@@ -1,3 +1,4 @@
+//const calculate
 const calculate = (n1, operator, n2) => {
     const firstNum = parseFloat(n1);
     const secondNum = parseFloat(n2);
