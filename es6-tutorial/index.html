@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="splitt()">Click parse date</button>
+
+    <!-- <p id="demo"></p> -->
+    <p id="year"></p>
+    <p id="month"></p>
+    <p id="day"></p>
+    <p id="full"></p>
+    <script>
+        function splitt() {
+            let str_date = '20200401000000';
+            // var dateslice = str_date.slice(0, 8);
+            let year = str_date.slice(0, 4);
+            let month = str_date.slice(4, 6);
+            let day = str_date.slice(6, 8);
+            let full = month + '/' + day + '/' + year
+                // document.getElementById('demo').innerHTML = dateslice;
+            document.getElementById('year').innerHTML = year;
+            document.getElementById('month').innerHTML = month;
+            document.getElementById('day').innerHTML = day;
+            document.getElementById('full').innerHTML = full;
+        }
+    </script>
+</body>
+
+</html>
