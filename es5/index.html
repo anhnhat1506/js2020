@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "Nhat"
+        };
+        var greeting = function(a, b, c) {
+            return "Hello " + this.name + " to" + a + "," + b + " in " + c;
+        }
+        var bound = greeting.bind(obj);
+        console.dir(bound);
+        console.log("Output using .bind() below");
+        console.log(bound("Ham Thuan Bac", "Phan Thiet", "Binh Thuan"));
+    </script>
+</body>
+
+</html>
