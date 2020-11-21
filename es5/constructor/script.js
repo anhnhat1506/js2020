@@ -4,7 +4,7 @@ function Book(title, author, year) {
     this.year = year;
 
 
-    this.getSumary = function() {
+    this.getSumary = function () {
         return `${this.title} was written by ${this.author} in ${this.year}`;
     }
 }
