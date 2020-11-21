@@ -8,3 +8,9 @@ function say1(message1) {
     console.log(message1);
 }
 say1();
+
+var arr = [10, 20, "hi", , {}];
+
+arr.forEach(function(item, index) {
+    console.log(' arr[' + index + '] is ' + item);
+});
