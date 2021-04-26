@@ -71,10 +71,10 @@
 // const freddie = new Chameleon({ newColor: 'purple'});
 // freddie.colorChange('orange')
 
-// let number = 0
-// console.log(number++)
-// console.log(++number)
-// console.log(number)
+let number = 0
+console.log(number++)
+console.log(++number)
+console.log(number)
 
 
 // function getPersonInfo(one, two, three){
@@ -97,9 +97,9 @@
 // }
 // checkAge({ age: 18})
 
-function getAge(){
-  "use strict"
-  age = 21
-  console.log(age)
+function getAge() {
+    "use strict"
+    age = 21
+    console.log(age)
 }
 getAge()
